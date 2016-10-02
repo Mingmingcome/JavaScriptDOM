@@ -45,4 +45,5 @@ insertAfter方法（DOM没有提供这个方法）
 
 ##### appendChild()和insertBefore()
 看了jQuery的append()、prepend()、before()和after()用法的时候，比较了一下他们的区别：
+
 append()、prepend()添加的是子节点，before()、after()添加同级元素，位置就按照他们的字面意思插入。
