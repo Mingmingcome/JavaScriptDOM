@@ -1,6 +1,7 @@
 ### 第7章 动态创建标记
 #### 本章内容
 传统技术：document.write和innerHTML
+
 深入剖析DOM方法：createElemnt、createTextNode、appendChild和insertBefore.
 
 #### 7.1
