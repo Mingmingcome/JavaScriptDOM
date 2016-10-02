@@ -33,6 +33,7 @@ insertBefore()方法
 语法：parentElement.insertBefore(newElement,targetElement)
 ##### 7.3.2 在现有元素后插入一个新元素
 insertAfter方法（DOM没有提供这个方法）
+
 自己实现：
 <pre><code>function insertAfter(newElement,targetElement){
 	var parent = targetElement.parentNode;
