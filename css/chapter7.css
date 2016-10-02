@@ -1,0 +1,41 @@
+body{
+	font-family: "Helvetica","Arial",serif;
+	color: #333;
+	background-color: #ccc;
+	magrin: 1em 10%;
+}
+h1{
+	color: #333;
+	background-color: transparent;
+	text-align: center;
+}
+a{
+	color: #c60;
+	background-color: transparent;
+	font-weight: bold;
+	text-decoration: none;
+}
+ul{
+	padding: 0;
+}
+li{
+	float: left;
+	/* 没有float的话，第一个li会比后面的宽多几个px，原因未明 */
+	padding: 0;
+	list-style: none;
+}
+#imagegallery{
+	list-style: none;
+	/* 不知为什么placeholder那张图片和ul下的里在同一行？解决方法：让display属性为flex */
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	width: 200px;
+}
+#imagegallery li{
+	display: inline;
+}
+#imagegallery li a img{
+	border: 0;
+	border-radius: 50px;
+}
