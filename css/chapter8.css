@@ -1,0 +1,22 @@
+body{
+	font-family: "Helvetica","Arial",sans-serif;
+	font-size: 10pt;
+}
+abbr{
+	text-decoration: none;
+	border: 0;
+	font-style: normal;
+}
+li{
+	display: inline;
+	list-style: none;
+}
+a{
+	text-decoration: none;
+}
+a:link,a:visited{
+	color: #00bfff;
+}
+a:hover,a:focus,a:active{
+	color: red;
+}
