@@ -74,7 +74,7 @@ function styleElementSiblings(tag,theclass){
 	if(!document.getElementsByTagName) return false;
 	var elems = document.getElementsByTagName(tag);
 	var elem;
-	fo(var i=0; i<elems.length; i++){
+	for(var i=0; i<elems.length; i++){
 		elem = getNextElement(elems[i].nextSibling);
 		addClass(elem,theclass);
 	}
