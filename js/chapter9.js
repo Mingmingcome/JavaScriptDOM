@@ -69,6 +69,25 @@ function addClass(element,value){
 	}
 }
 
+//将styleHeaderSiblings()抽象为styleElementSiblings(tag,theclass)
+function styleElementSiblings(tag,theclass){
+	if(!document.getElementsByTagName) return false;
+	var elems = document.getElementsByTagName(tag);
+	var elem;
+	fo(var i=0; i<elems.length; i++){
+		elem = getNextElement(elems[i].nextSibling);
+		addClass(elem,theclass);
+	}
+}
+
+/* 
+	如果把字符串值"h1"和"intro"作为参数传递给这个函数，就可以获得原来的效果
+	addLoadEvent(function(){
+	styleElementSiblings("h1","intro");
+	})
+*/
+
+
 addLoadEvent(styleHeaderSiblings);
 addLoadEvent(striptTables);
 addLoadEvent(highlightRows);
