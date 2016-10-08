@@ -60,6 +60,12 @@ element.style.color = 'black'</code></pre>
 ### 9.4 className属性
 与其使用DOM直接改变某个元素的样式，不如通过JavaScript代码区更新这个元素的class属性。
 <pre><code>function addClass(element,value);</code></pre>
+获取和设置className方法：
+<pre><code>element.getAttribute("class");
+element.setAttribute("class","intro");
+or
+element.className;
+element.className = value;</code></pre>
 
 #### 对函数进行抽象
 把一个非常具体的东西改进为一个较为通用的东西的过程就做抽象（abstraction）。

@@ -2,9 +2,13 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>根据元素在节点树里的位置来设置样式</title>
+	<title>何时该用DOM脚本设置样式</title>
+
+	<link rel="stylesheet" href="css/chapter9.css">
 </head>
 <body>
+	<!-- 根据元素在节点树里的位置来设置样式 -->
+	<!-- function styleHeaderSiblings() -->
 	<h1>Hold the front page</h1>
 	<p>This first paragraph leads you in.</p>
 	<p>Now you get the nitty-gritty of the story.</p>
@@ -12,5 +16,35 @@
 	<h1>Extra! Extra!</h1>
 	<p>Further development are unfolding.</p>
 	<p>You can read all about it here.</p>
+
+	<!-- 根据某种条件反复设置某种样式 -->
+	<!-- function stripeTabels() -->
+	<!-- 响应事件 -->
+	<!-- function highlightRows() -->
+	<table>
+		<caption>Itinerary</caption>
+		<thead>
+			<tr>
+				<th>When</th>
+				<th>Where</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>June 9th</td>
+				<td>Portland,<abbr title="Oregon">OR</abbr></td>
+			</tr>
+			<tr>
+				<td>June 10th</td>
+				<td>Seattle,<abbr title="Washington">WA</abbr></td>
+			</tr>
+			<tr>
+				<td>June 12th</td>
+				<td>Sacramento,<abbr title="California">CA</abbr></td>
+			</tr>
+		</tbody>
+	</table>
+	<script src="js/addLoadEvent.js"></script>
+	<script src="js/chapter9.js"></script>
 </body>
 </html>
