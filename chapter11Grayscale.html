@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Grayscale Canvas Example</title>
+	<script src="js/modernizr.js"></script>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+		}
+
+		img{
+			/*border: 1px solid #000;*/
+			/* 发现有个问题：即使body设置了margin,padding为0，但img还是会有距离，即没有那种紧贴着的那种效果*/
+			/*网上有一种解决方法：设置浮动*/
+			float: left;
+		}
+		
+		/*居中*/
+		.center{
+			position: absolute;
+			left: 0;
+			right: 0;
+			margin: auto;
+			width: 328px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div class="center">
+		<img src="images/Star_thumbnail.jpg" id="avatar1" title="Gui Lunmei" alt="My Avatar">
+		<img src="images/avatar.png" id="avatar2" title="Jeffrey Sambells" alt="My Avatar">
+		<img src="images/Star_thumbnail.jpg" id="avatar3" title="Gui Lunmei" alt="My Avatar">
+	</div>	
+	<script>
+		function convertToGS(img){
+
+			//
+			if(!Modernizr.canvas) return;
+			//
+			img.color = img.src;
+
+			//
+			img.grayscale = createGSCanvas(img);
+
+			//
+			img.onmouseover = function() {
+				this.src = this.color;
+			}
+			img.onmouseout = function() {
+				this.src = this.grayscale;
+			}
+
+			img.onmouseout();
+		}
+		function createGSCanvas(img) {
+
+			var canvas = document.createElement("canvas");
+			canvas.width = img.width;
+			canvas.height = img.height;
+
+			var ctx = canvas.getContext("2d");
+			ctx.drawImage(img, 0, 0);
+
+			//
+			var c = ctx.getImageData(0, 0, img.width, img.height);
+			for (var i = 0; i < c.height; i++) {
+				for (var j = 0; j < c.width; j++) {
+					var x = (i*4) * c.height + (j*4);
+					var r = c.data[x];
+					var g = c.data[x+1];
+					var b = c.data[x+2];
+					c.data[x] = c.data[x+1] = c.data[x+2] = (r+g+b)/3;
+				}
+			}
+
+			ctx.putImageData(c, 0, 0, 0, 0, c.width, c.height);
+
+			return canvas.toDataURL();
+		}
+
+		//
+		window.onload = function() {
+			convertToGS(document.getElementById("avatar1"));
+			convertToGS(document.getElementById("avatar2"));
+			convertToGS(document.getElementById("avatar3"));
+		}
+	</script>
+</body>
+</html>
