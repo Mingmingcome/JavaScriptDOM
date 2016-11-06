@@ -37,15 +37,15 @@
 	<script>
 		function convertToGS(img){
 
-			//
+			//如果浏览器不支持<canvas>就返回
 			if(!Modernizr.canvas) return;
-			//
+			//存储原始的彩色版
 			img.color = img.src;
 
-			//
+			//创建灰度版
 			img.grayscale = createGSCanvas(img);
 
-			//
+			//在mouseover/out事件发生时切换图片
 			img.onmouseover = function() {
 				this.src = this.color;
 			}
@@ -64,7 +64,8 @@
 			var ctx = canvas.getContext("2d");
 			ctx.drawImage(img, 0, 0);
 
-			//
+			//注意：getImageData只能操作与脚本位于同一个域中的图片
+			/* Attention：[chrome浏览器会出现这种错误：Uncaught SecurityError: Failed to execute 'getImageData' on 'CanvasRenderingContext2D': The canvas has been tainted by cross-origin data.]原因是：在图片之类的文件中读取数据是，不同浏览器有不同的安全考虑。为了保证这个例子正常运行，必须在<strong>同一个站点</strong>提供图片和文档。而且，<strong>就算在本地硬盘中使用file协议加载这个页面，例子也无法运行。</strong>*/
 			var c = ctx.getImageData(0, 0, img.width, img.height);
 			for (var i = 0; i < c.height; i++) {
 				for (var j = 0; j < c.width; j++) {
@@ -81,7 +82,7 @@
 			return canvas.toDataURL();
 		}
 
-		//
+		//添加load事件。如果有其他脚本，可以使用addLoadEvent函数
 		window.onload = function() {
 			convertToGS(document.getElementById("avatar1"));
 			convertToGS(document.getElementById("avatar2"));
