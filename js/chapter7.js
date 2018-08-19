@@ -22,7 +22,7 @@ function preparePlaceholder() {
 	//创建img元素和其属性
 	var placeholder = document.createElement("img");
 	placeholder.setAttribute("id","placeholder");
-	placeholder.setAttribute("src","https://raw.githubusercontent.com/Mingmingcome/JavaScriptDOM/master/images/Littlegirl_thumbnail.jpg/placeholder.jpg");
+	placeholder.setAttribute("src","https://raw.githubusercontent.com/Mingmingcome/JavaScriptDOM/master/images/placeholder.jpg");
 	placeholder.setAttribute("alt","my image gallery");
 	//为了居中显示在js中设置了CSS代码，不知有没有不合这本书一直说的结构、表示、行为的分离
 	placeholder.setAttribute("style","position: relative; margin-left: 50%; left: -250px; border-radius: 250px;")
